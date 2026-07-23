@@ -36,12 +36,20 @@ modified: '2026-07-23'
 specificationVersion: '0.19'
 apis: []
 common:
+- type: DomainSecurity
+  url: security/webster-bank-domain-security.yml
 - type: Website
   url: https://www.websterbank.com/
 - type: LinkedIn
   url: https://www.linkedin.com/company/webster-bank
 - type: Documentation
   url: https://www.websterbank.com/commercial-banking/online-access/
+- type: Support
+  url: https://www.websterbank.com/help
+- type: PrivacyPolicy
+  url: https://www.websterbank.com/privacy/
+- type: TermsOfService
+  url: https://www.websterbank.com/legal/
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
