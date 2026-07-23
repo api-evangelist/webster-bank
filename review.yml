@@ -1,0 +1,97 @@
+aid: webster-bank
+name: Webster Bank
+review:
+  question: Does Webster Bank expose a first-party public developer API or downloadable API specification?
+  answer: false
+  date: '2026-07-23'
+  reviewer: API Evangelist
+findings:
+  summary: |
+    Webster Bank, N.A. publishes no first-party public developer portal, no
+    self-serve developer program, and no downloadable OpenAPI/Swagger
+    specification. Probes confirm there is no developer surface: developer.websterbank.com
+    and developers.websterbank.com do not resolve (curl exit / HTTP 000),
+    websterbank.com/developers returns HTTP 404, and api.websterbank.com returns
+    HTTP 403 with no public documentation, reference, or authentication guide.
+    Webster's open-finance participation is delivered through the aggregator
+    layer using an FDX-aligned data-access standard rather than a direct API.
+    In June 2026 Webster went live on Prolific Banking's FI-Streams Connector,
+    leveraging Plaid's FDX-aligned Core Exchange specification to give
+    COMMERCIAL clients secure, tokenized data connectivity to the Plaid network
+    (7,000+ apps and services), synchronized with the bank's digital banking
+    entitlements and user authorization. Consumer account data (balances,
+    transactions, account-holder info, authentication) is also reachable via
+    Plaid and Finicity. No first-party endpoint, host, or spec is documented, so
+    none is recorded here.
+  openFinancePosture:
+    firstPartyDeveloperPortal: false
+    downloadableOpenAPI: false
+    fdxParticipant: true
+    fdxMechanism: >-
+      FDX-aligned via Plaid Core Exchange (Plaid's FDX-conformant data-access
+      specification), delivered through Prolific Banking's FI-Streams Connector
+      for commercial clients (announced 2026-06-11). Not a direct
+      Webster-hosted FDX API.
+    section1033Posture: >-
+      No separately published CFPB Section 1033 / Personal Financial Data Rights
+      statement was found. Data-sharing readiness is expressed through the
+      FDX-aligned Plaid Core Exchange integration rather than a first-party 1033
+      data-access API.
+    aggregatorAccess:
+      - Plaid (including FDX-aligned Core Exchange)
+      - Finicity
+    authModel: >-
+      Aggregator-mediated OAuth-style tokenized authorization (Plaid Core
+      Exchange / FI-Streams). No first-party OAuth2/OIDC, API-key, or mTLS
+      developer credential program is publicly documented.
+    specProvenance: >-
+      None harvested. No first-party OpenAPI/Swagger is published; the FDX and
+      Plaid Core Exchange specifications are member/partner-gated and were not
+      fabricated or copied.
+  transports:
+    - protocol: REST
+      scheme: https
+      note: No first-party public REST API documented. api.websterbank.com returns HTTP 403 and is not a documented developer endpoint.
+      documented: false
+    - protocol: Aggregator (Plaid Core Exchange / FDX-aligned)
+      scheme: https
+      note: Commercial-client data connectivity via Prolific FI-Streams over Plaid's FDX-aligned Core Exchange; consumer access via Plaid and Finicity. Not a Webster-hosted API surface.
+      documented: true
+  probes:
+    - url: https://developer.websterbank.com
+      status: '000'
+      note: Host does not resolve / no server. No developer portal.
+    - url: https://developers.websterbank.com
+      status: '000'
+      note: Host does not resolve / no server.
+    - url: https://api.websterbank.com
+      status: '403'
+      note: Responds but forbidden; no public documentation, reference, or spec.
+    - url: https://websterbank.com/developers
+      status: '404'
+      note: No developers page.
+    - url: https://www.websterbank.com
+      status: '200'
+      note: Public marketing/banking website (live).
+sources:
+  - url: https://www.businesswire.com/news/home/20260611592775/en/Webster-Bank-Implements-Prolific-Bankings-FI-Streams-Connector-to-Enable-Commercial-Client-Financial-Data-Connectivity
+    type: PressRelease
+    note: Webster Bank live on Prolific Banking FI-Streams using Plaid FDX-aligned Core Exchange for commercial-client data connectivity (2026-06-11).
+  - url: https://www.openbankingtracker.com/provider/webster-bank-na-us
+    type: Reference
+    note: Open Banking Tracker provider profile; no first-party developer portal, aggregator-mediated access.
+  - url: https://www.websterbank.com/commercial-banking/online-access/
+    type: Documentation
+    note: Webster commercial banking online-access solutions page (customer-facing, not a developer API).
+  - url: https://www.websterbank.com/
+    type: Website
+    note: Corporate website; ~$84B-asset super-regional commercial bank, subsidiary of Webster Financial Corporation (NYSE WBS), HSA Bank division.
+actions:
+  apisYmlUpdated: true
+  status: built-stub
+  reason: |
+    Identity record plus an honest open-finance posture. No first-party public
+    API surface exists to harvest: no developer portal, no downloadable OpenAPI,
+    aggregator-only (Plaid/Finicity) data sharing over an FDX-aligned Plaid Core
+    Exchange integration. apis[] left empty rather than padded with fabricated
+    endpoints.
