@@ -36,6 +36,8 @@ modified: '2026-07-23'
 specificationVersion: '0.19'
 apis: []
 common:
+- type: Blog
+  url: https://www.websterbank.com/private-banking/insights/
 - type: DomainSecurity
   url: security/webster-bank-domain-security.yml
 - type: Website
