@@ -1,0 +1,14 @@
+{
+  "repo": "webster-bank",
+  "feeds": [
+    {
+      "source": "https://raw.githubusercontent.com/api-evangelist/webster-bank/refs/heads/main/apis.yml",
+      "feed_url": "https://raw.githubusercontent.com/api-evangelist/webster-bank/refs/heads/main/apis.yml",
+      "title": "",
+      "saved": 0,
+      "method": "none"
+    }
+  ],
+  "post_count": 0,
+  "fetched": "2026-08-22T20:20:02Z"
+}
