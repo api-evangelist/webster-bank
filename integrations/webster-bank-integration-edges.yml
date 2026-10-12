@@ -1,0 +1,16 @@
+generated: '2026-10-12'
+method: none
+source:
+- https://zapier.com/apps/webster-bank/integrations
+- https://n8n.io/integrations/webster-bank/
+- https://composio.dev/toolkits/webster-bank
+- https://monid.ai/tools/webster-bank
+checked:
+- https://composio.dev/toolkits/webster-bank
+- https://monid.ai/tools/webster-bank
+- https://n8n.io/integrations/webster-bank/
+- https://zapier.com/apps/webster-bank/integrations
+summary: null
+marketplace_apps: []
+edges: []
+templates: []
